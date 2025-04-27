@@ -232,7 +232,7 @@ def contact():
         with SMTP(host="smtp.gmail.com",port=587) as connection:
             connection.starttls()
             connection.login(user=MY_EMAIL,password=MY_PASSWORD)
-            connection.sendmail(from_addr=request.form["email"],to_addrs=MY_EMAIL,msg=f"Subject:Query on your Blog Website\n\n{request.form["message"]}")
+            connection.sendmail(from_addr=request.form["email"],to_addrs=MY_EMAIL,msg=f"Subject:Query on your Blog Website\n\n{request.form['message']}")
             return redirect(url_for("get_all_posts"))
     return render_template("contact.html")
 
